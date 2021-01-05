@@ -1,0 +1,57 @@
+<mat-list-item>
+	<mat-icon mat-list-icon>face</mat-icon>
+	<div mat-line>{{ contact.name }}</div>
+	<div *ngIf="actions">
+		<button
+			(click)="changeVisibility()"
+			color="primary"
+			mat-icon-button>
+			<mat-icon>
+				{{visibility ? 'visibility': 'visibility_off'}}
+			</mat-icon>
+		</button>
+		<button
+			routerLink="/updatecontact/{{ contact.id }}"
+			color="primary"
+			mat-icon-button>
+			<mat-icon>create</mat-icon>
+		</button>
+		<button
+			(click)="openDialog()"
+			color="warn"
+			mat-icon-button>
+			<mat-icon>delete</mat-icon>
+		</button>
+	</div>
+</mat-list-item>
+
+<mat-list
+	*ngIf="visibility"
+	role="list">
+	<mat-list-item role="listitem">
+		<span class="Contact-label">Id:</span>
+		{{contact.id}}
+	</mat-list-item>
+	<mat-list-item role="listitem">
+		<span class="Contact-label">Name:</span>
+		{{contact.name}}
+	</mat-list-item>
+	<mat-list-item role="listitem">
+		<span class="Contact-label">Identification number:</span>
+		{{contact.number}}
+	</mat-list-item>
+	<mat-list-item role="listitem">
+		<span class="Contact-label">Phone:</span>
+		{{contact.tel}}
+	</mat-list-item>
+	<mat-list-item role="listitem">
+		<span class="Contact-label">Direction:</span>
+		{{contact.direction}}
+	</mat-list-item>
+	<mat-list-item
+		*ngIf="contact.birthday"
+		role="listitem">
+		<span class="Contact-label">Birthday:</span>
+		{{contact.birthday}}
+	</mat-list-item>
+</mat-list>

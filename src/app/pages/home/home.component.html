@@ -1,0 +1,64 @@
+<div class="Home">
+
+	<div class="Home_chart">
+		<div class="Home_chart-child">
+			<button
+				(click)="showAllContacts()"
+				color="primary"
+				class="Home_chart-allContacts"
+				mat-button>
+				<span class="Home_chart-number">{{allContactsNumber}}</span>
+				<span class="Home_chart-numberCopy">All Contacts</span>
+			</button>
+		</div>
+		<div class="Home_chart-child">
+			<button
+				(click)="showAllContactsBirthday()"
+				color="primary"
+				class="Home_chart-birthdayContacts"
+				mat-button>
+				<span class="Home_chart-number">{{allContactsBirthdayNumber}}</span>
+				<span class="Home_chart-numberCopy">Happy Birthday Today</span>
+			</button>
+		</div>
+		<div class="Home_chart-child">
+			<button
+				color="primary"
+				routerLink="/contacts"
+				class="Home_chart-button"
+				mat-button>
+				<mat-icon class="Home_chart-icon">groups</mat-icon>
+				<span>My Contacts</span>
+			</button>
+		</div>
+	</div>
+
+	<div class="Home_contacts">
+		<div *ngIf="showAllContactsState">
+			<h3 class="Home_contacts-title">All Contacts</h3>
+			<mat-list>
+				<div
+					*ngFor="let contact of contacts"
+					class="Home_contacts-item">
+					<app-contact
+						[contact]="contact"
+						[actions]="false"></app-contact>
+				</div>
+			</mat-list>
+		</div>
+
+		<div *ngIf="showAllContactsBirthdayState">
+			<h3 class="Home_contacts-title">All Contacts Birthday</h3>
+			<mat-list>
+				<div
+					*ngFor="let contact of contactsBirthday"
+					class="Home_contacts-item">
+					<app-contact
+						[contact]="contact"
+						[actions]="false"></app-contact>
+				</div>
+			</mat-list>
+		</div>
+	</div>
+
+</div>

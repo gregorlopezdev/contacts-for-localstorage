@@ -1,0 +1,19 @@
+<div class="Contacts">
+	<div class="Contacts_new">
+		<button
+			color="primary"
+			routerLink="/newcontact"
+			mat-raised-button>
+			New Contact
+		</button>
+	</div>
+	<div class="Contacts_list">
+		<mat-list>
+			<div
+				*ngFor="let contact of contacts"
+				class="Contacts_listItem">
+				<app-contact [contact]="contact"></app-contact>
+			</div>
+		</mat-list>
+	</div>
+</div>

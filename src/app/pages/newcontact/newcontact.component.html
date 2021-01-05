@@ -1,0 +1,79 @@
+<div class="Newcontact">
+	<form
+		(ngSubmit)="onSubmit()"
+		[formGroup]="contactForm">
+		<h3 class="Newcontact_title">New contact</h3>
+		<div class="Newcontact_form">
+			<mat-form-field
+				appearance="outline"
+				class="Newcontact_field">
+				<mat-label>Full Name</mat-label>
+				<input
+					matInput
+					formControlName="name"
+					required>
+			</mat-form-field>
+			<mat-form-field
+				appearance="outline"
+				class="Newcontact_field">
+				<mat-label>Identification number</mat-label>
+				<input
+					matInput
+					formControlName="number"
+					required>
+			</mat-form-field>
+			<mat-form-field
+				appearance="outline"
+				class="Newcontact_field">
+				<mat-label>Phone</mat-label>
+				<input
+					matInput
+					formControlName="tel"
+					required>
+			</mat-form-field>
+			<mat-form-field
+				appearance="outline"
+				class="Newcontact_field">
+				<mat-label>Direction</mat-label>
+				<input
+					matInput
+					formControlName="direction"
+					required>
+			</mat-form-field>
+			<mat-form-field
+				class="Newcontact_field"
+				color="primary"
+				appearance="outline">
+				<mat-label>Choose a date</mat-label>
+				<input
+					matInput
+					formControlName="birthday"
+					[matDatepicker]="picker"
+					required>
+				<mat-datepicker-toggle
+					matSuffix
+					class="Newcontact_field-icon"
+					[for]="picker"></mat-datepicker-toggle>
+				<mat-datepicker
+					disabled="false"
+					#picker></mat-datepicker>
+			</mat-form-field>
+
+		</div>
+		<div class="Newcontact_actions">
+			<button
+				color="primary"
+				type="submit"
+				mat-raised-button
+				[disabled]="!contactForm.valid">
+				Create
+			</button>
+			<button
+				routerLink="/contacts"
+				color="warn"
+				mat-raised-button>
+				Cancel
+			</button>
+		</div>
+	</form>
+</div>

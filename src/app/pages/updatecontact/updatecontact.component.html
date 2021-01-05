@@ -1,0 +1,78 @@
+<div class="Updatecontact">
+	<form
+		(ngSubmit)="onSubmit()"
+		[formGroup]="contactForm">
+		<h3 class="Updatecontact_title">Update contact</h3>
+		<div class="Updatecontact_form">
+			<mat-form-field
+				appearance="outline"
+				class="Updatecontact_field">
+				<mat-label>Full Name</mat-label>
+				<input
+					matInput
+					formControlName="name"
+					required>
+			</mat-form-field>
+			<mat-form-field
+				appearance="outline"
+				class="Updatecontact_field">
+				<mat-label>Identification number</mat-label>
+				<input
+					matInput
+					formControlName="number"
+					required>
+			</mat-form-field>
+			<mat-form-field
+				appearance="outline"
+				class="Updatecontact_field">
+				<mat-label>Phone</mat-label>
+				<input
+					matInput
+					formControlName="tel"
+					required>
+			</mat-form-field>
+			<mat-form-field
+				appearance="outline"
+				class="Updatecontact_field">
+				<mat-label>Direction</mat-label>
+				<input
+					matInput
+					formControlName="direction"
+					required>
+			</mat-form-field>
+			<mat-form-field
+				class="Updatecontact_field"
+				color="primary"
+				appearance="outline">
+				<mat-label>Choose a date</mat-label>
+				<input
+					matInput
+					formControlName="birthday"
+					[matDatepicker]="picker"
+					required>
+				<mat-datepicker-toggle
+					matSuffix
+					class="Updatecontact_field-icon"
+					[for]="picker"></mat-datepicker-toggle>
+				<mat-datepicker
+					disabled="false"
+					#picker></mat-datepicker>
+			</mat-form-field>
+		</div>
+		<div class="Updatecontact_actions">
+			<button
+				color="primary"
+				type="submit"
+				mat-raised-button
+				[disabled]="!contactForm.valid">
+				Update
+			</button>
+			<button
+				routerLink="/contacts"
+				color="warn"
+				mat-raised-button>
+				Cancel
+			</button>
+		</div>
+	</form>
+</div>
